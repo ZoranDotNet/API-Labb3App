@@ -14,7 +14,8 @@ namespace API_Labb3.Endpoints
             group.MapGet("/", GetAll).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(60)).Tag("people-get"))
                 .WithOpenApi(options =>
                 {
-                    options.Summary = "Get all people - Pagination- max is 50 per page";
+                    options.Summary = "Get all people, Pagination - max is 50 per page";
+                    options.Description = "Retrieves a paginated list of all people. The maximum number of people per page is 50.";
                     return options;
                 });
             group.MapGet("/{id:int}", GetById).WithOpenApi(options =>
