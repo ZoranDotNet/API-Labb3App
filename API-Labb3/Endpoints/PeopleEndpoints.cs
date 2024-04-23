@@ -1,5 +1,6 @@
 ﻿using API_Labb3.DTOs;
 using API_Labb3.Entity;
+using API_Labb3.Filter;
 using API_Labb3.Repositories;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OutputCaching;
@@ -31,12 +32,12 @@ namespace API_Labb3.Endpoints
                 options.Summary = "Get all links for a person";
                 return options;
             });
-            group.MapPost("/", Create).WithOpenApi(options =>
+            group.MapPost("/", Create).AddEndpointFilter<ValidationFilter<CreatePersonDTO>>().WithOpenApi(options =>
             {
                 options.Summary = "Create new person";
                 return options;
             });
-            group.MapPut("/{id:int}", Update);
+            group.MapPut("/{id:int}", Update).AddEndpointFilter<ValidationFilter<CreatePersonDTO>>();
             group.MapDelete("/{id:int}", Delete);
 
             return group;
