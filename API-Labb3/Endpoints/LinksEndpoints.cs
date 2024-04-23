@@ -1,5 +1,6 @@
 ﻿using API_Labb3.DTOs;
 using API_Labb3.Entity;
+using API_Labb3.Filter;
 using API_Labb3.Repositories;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OutputCaching;
@@ -17,7 +18,8 @@ namespace API_Labb3.Endpoints
                     return options;
                 });
             group.MapGet("/{id:int}", GetById);
-            group.MapPost("/", Create).WithOpenApi(options =>
+            group.MapPost("/", Create).AddEndpointFilter<ValidationFilter<CreateLinkDTO>>()
+                .WithOpenApi(options =>
             {
                 options.Summary = "Assign link to a hobby";
                 return options;

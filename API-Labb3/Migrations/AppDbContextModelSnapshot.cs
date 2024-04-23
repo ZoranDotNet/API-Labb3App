@@ -46,7 +46,7 @@ namespace API_Labb3.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("Hobbies");
+                    b.ToTable("Hobbies", (string)null);
                 });
 
             modelBuilder.Entity("API_Labb3.Entity.Link", b =>
@@ -68,7 +68,7 @@ namespace API_Labb3.Migrations
 
                     b.HasIndex("HobbyId");
 
-                    b.ToTable("Links");
+                    b.ToTable("Links", (string)null);
                 });
 
             modelBuilder.Entity("API_Labb3.Entity.Person", b =>
@@ -95,7 +95,7 @@ namespace API_Labb3.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("People");
+                    b.ToTable("People", (string)null);
                 });
 
             modelBuilder.Entity("API_Labb3.Entity.Hobby", b =>
