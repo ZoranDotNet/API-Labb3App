@@ -11,7 +11,8 @@ namespace API_Labb3.Validation
                 .MaximumLength(100).WithMessage(ValidationsUtilities.MaximumLengthMessage)
                 .Must(ValidationsUtilities.FirstLetterIsUpperCase).WithMessage(ValidationsUtilities.FirstLetterIsUpperCaseMessage);
 
-            RuleFor(p => p.Email).EmailAddress().WithMessage(ValidationsUtilities.EmailMessage);
+            RuleFor(p => p.Email).NotEmpty().WithMessage(ValidationsUtilities.NonEmptyMessage)
+                .EmailAddress().WithMessage(ValidationsUtilities.EmailMessage);
 
             RuleFor(p => p.PhoneNumber).MaximumLength(20).WithMessage(ValidationsUtilities.MaximumLengthMessage);
         }

@@ -7,11 +7,13 @@ namespace API_Labb3.Validation
     {
         public CreateHobbyDTOValidator()
         {
-            RuleFor(h => h.Title).Must(ValidationsUtilities.FirstLetterIsUpperCase)
-                .WithMessage(ValidationsUtilities.FirstLetterIsUpperCaseMessage)
-                .MaximumLength(100).WithMessage(ValidationsUtilities.MaximumLengthMessage);
+            RuleFor(h => h.Title).NotEmpty().WithMessage(ValidationsUtilities.NonEmptyMessage)
+                .MaximumLength(100).WithMessage(ValidationsUtilities.MaximumLengthMessage)
+                .Must(ValidationsUtilities.FirstLetterIsUpperCase)
+                .WithMessage(ValidationsUtilities.FirstLetterIsUpperCaseMessage);
 
-            RuleFor(h => h.Description).MaximumLength(300).WithMessage(ValidationsUtilities.MaximumLengthMessage)
+            RuleFor(h => h.Description).NotEmpty().WithMessage(ValidationsUtilities.NonEmptyMessage)
+                .MaximumLength(300).WithMessage(ValidationsUtilities.MaximumLengthMessage)
                 .Must(ValidationsUtilities.FirstLetterIsUpperCase).WithMessage(ValidationsUtilities.FirstLetterIsUpperCaseMessage);
         }
     }
