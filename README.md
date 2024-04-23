@@ -1,6 +1,6 @@
 <h1>API Labb 3</h1>
 
-<p>Repository pattern, validation with Endpointfilters and pagination</p>
+<p>Repository pattern, outputCache, validation with Endpointfilters and pagination</p>
 
 <p>Endpoints:</p>
 
