@@ -26,7 +26,7 @@ namespace API_Labb3.Endpoints
             });
             group.MapGet("/name", GetByName).WithOpenApi(options =>
             {
-                options.Summary = "Search by Name - Response includes Hobbies and Links";
+                options.Summary = "Search by Name - /api/people/name?name=   ,Response includes Hobbies and Links";
                 return options;
             });
             group.MapGet("/{id:int}/links", GetLinks).WithOpenApi(options =>

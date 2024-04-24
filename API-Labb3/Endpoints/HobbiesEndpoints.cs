@@ -14,7 +14,7 @@ namespace API_Labb3.Endpoints
         {
             builder.MapGet("/title", GetByTitle).WithOpenApi(options =>
             {
-                options.Summary = "Search by Title - Response includes Links";
+                options.Summary = "Search by Title -  /api/hobbies?title=    ,Response includes Links";
                 return options;
             });
             return builder;
