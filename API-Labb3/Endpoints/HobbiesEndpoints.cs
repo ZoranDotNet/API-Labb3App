@@ -3,6 +3,7 @@ using API_Labb3.Entity;
 using API_Labb3.Filter;
 using API_Labb3.Repositories;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 
 namespace API_Labb3.Endpoints
@@ -11,7 +12,7 @@ namespace API_Labb3.Endpoints
     {
         public static RouteGroupBuilder MapHobbySearch(this RouteGroupBuilder builder)
         {
-            builder.MapGet("/{title}", GetByTitle).WithOpenApi(options =>
+            builder.MapGet("/title", GetByTitle).WithOpenApi(options =>
             {
                 options.Summary = "Search by Title - Response includes Links";
                 return options;
@@ -170,7 +171,7 @@ namespace API_Labb3.Endpoints
             return TypedResults.NoContent();
         }
 
-        static async Task<Results<Ok<List<HobbyDTO>>, NotFound>> GetByTitle(string title,
+        static async Task<Results<Ok<List<HobbyDTO>>, NotFound>> GetByTitle([FromQuery] string title,
             IHobbiesRepository hobbiesRepository, IPeopleRepository peopleRepository)
         {
             var hobbies = await hobbiesRepository.GetByTitle(title);

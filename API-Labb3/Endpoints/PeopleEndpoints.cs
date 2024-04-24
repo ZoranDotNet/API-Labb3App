@@ -3,6 +3,7 @@ using API_Labb3.Entity;
 using API_Labb3.Filter;
 using API_Labb3.Repositories;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 
 namespace API_Labb3.Endpoints
@@ -23,7 +24,7 @@ namespace API_Labb3.Endpoints
                 options.Summary = "Get by ID - including Hobbies and Links";
                 return options;
             });
-            group.MapGet("/{name}", GetByName).WithOpenApi(options =>
+            group.MapGet("/name", GetByName).WithOpenApi(options =>
             {
                 options.Summary = "Search by Name - Response includes Hobbies and Links";
                 return options;
@@ -85,7 +86,7 @@ namespace API_Labb3.Endpoints
             return TypedResults.Ok(personDTO);
         }
 
-        static async Task<Ok<List<PersonDTO>>> GetByName(string name, IPeopleRepository peopleRepository)
+        static async Task<Ok<List<PersonDTO>>> GetByName([FromQuery] string name, IPeopleRepository peopleRepository)
         {
             var people = await peopleRepository.GetByName(name);
             var personsDTO = people.Select(p => new PersonDTO
