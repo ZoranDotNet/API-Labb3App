@@ -5,7 +5,8 @@
 <p>Endpoints:</p>
 
 
-![Skärmbild 2024-04-24 111451](https://github.com/ZoranDotNet/API-Labb3App/assets/128193220/f175fd87-ff33-46fa-b86f-be213d667767)
+![Skärmbild 2024-04-27 194954](https://github.com/ZoranDotNet/API-Labb3App/assets/128193220/188279ef-3eb7-45a9-8dd5-66b8bf6d7acb)
+
+![Skärmbild 2024-04-27 195015](https://github.com/ZoranDotNet/API-Labb3App/assets/128193220/bbd38565-f4c8-4d7d-b247-d820ae970193)
 
 
-![Skärmbild 2024-04-24 111509](https://github.com/ZoranDotNet/API-Labb3App/assets/128193220/7e944f24-3ad3-4efb-9b3f-af38099a88c0)
